@@ -13,6 +13,8 @@ python = "^3.12"
 requests = "^2.32.3"
 pydantic-settings = "^2.7.0"
 pydantic = "^2.10.4"
+opencv-python = "^4.10.0.84"
+pillow = "^11.0.0"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^4.0.1"
