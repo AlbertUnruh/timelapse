@@ -1,8 +1,10 @@
 # standard library
 from functools import cached_property
 from pathlib import Path
+from typing import Annotated
 
 # third party
+from annotated_types import Ge
 from pydantic import HttpUrl
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -21,7 +23,7 @@ class Environment(BaseSettings):
 
     URL: HttpUrl
     """The webdav-url (including credentials)."""
-    CAMERA: int
+    CAMERA: int = 0
     """The camera to capture from."""
     SPAN: float = 1.0
     """The total span to cover with the timelapse. (in days)"""
@@ -29,6 +31,8 @@ class Environment(BaseSettings):
     """How many frames the timelapse should have per second."""
     DURATION: int = 60
     """How long the final timelapse should be. (in seconds)"""
+    PRE_CAPTURES: Annotated[int, Ge(ge=0)] = 3
+    """How many captures should be taken before they are used."""
 
     @cached_property
     def sessions_url(self) -> str:
