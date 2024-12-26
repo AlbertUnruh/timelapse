@@ -4,8 +4,8 @@ from pathlib import Path
 from typing import Annotated
 
 # third party
-from annotated_types import Ge
-from pydantic import HttpUrl
+from annotated_types import Ge, Gt
+from pydantic import HttpUrl, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -22,16 +22,18 @@ class Environment(BaseSettings):
     )
 
     URL: HttpUrl
-    """The webdav-url (including credentials)."""
+    """The webdav-url."""
+    AUTHORIZATION: SecretStr = None
+    """The authorization header."""
     CAMERA: int = 0
     """The camera to capture from."""
-    SPAN: float = 1.0
+    SPAN: Annotated[float, Gt(gt=0)] = 1.0
     """The total span to cover with the timelapse. (in days)"""
-    FPS: int = 20
+    FPS: Annotated[int, Ge(ge=1)] = 20
     """How many frames the timelapse should have per second."""
-    DURATION: int = 60
+    DURATION: Annotated[int, Ge(ge=1)] = 60
     """How long the final timelapse should be. (in seconds)"""
-    PRE_CAPTURES: Annotated[int, Ge(ge=0)] = 3
+    PRE_CAPTURES: Annotated[int, Ge(ge=0)] = 5
     """How many captures should be taken before they are used."""
 
     @cached_property
