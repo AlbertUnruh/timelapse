@@ -8,7 +8,7 @@ Just run ``poetry install`` :)
 
 ### How to run
 There are many ways to run the project, but I recommend following steps:
-1. set your cwd to the directory of this file (projects rot)
+1. set your cwd to the directory of this file (project red)
 2. type ``python3.12 -m timelapse``
 
 
