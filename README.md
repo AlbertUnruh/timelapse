@@ -9,9 +9,14 @@ Just run ``poetry install`` :)
 ### How to run
 There are many ways to run the project, but I recommend following steps:
 1. set your cwd to the directory of this file (project root)
-2. type ``python3.12 -m timelapse``
+2. open a shell with ``poetry shell``
+3. type ``python -m timelapse`` to run the project
+
+#### Troubleshooting
+Please refer to [TROUBLESHOOTING.md](./TROUBLESHOOTING.md).
 
 
+---
 
 > [!NOTE]  
 > To change settings copy ``.env`` as ``.env.prod``. Values set there will override the default ones and won't be versioned.
