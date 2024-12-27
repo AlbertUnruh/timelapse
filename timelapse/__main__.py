@@ -5,9 +5,7 @@ from time import sleep
 # local
 from .camera import capture
 from .environment import env
-from .utils import capture_and_save, generate_new_session
-from .video import convert_to_mp4
-from .webdav import download_session, save_video
+from .utils import capture_and_save, generate_new_session, generate_video_and_save
 
 
 # take initial capture(s)
@@ -40,7 +38,5 @@ if latest_thread is not None:
 
 print("last frame has been captured and saved")
 
-video_path = convert_to_mp4(download_session(current_session))
+video_path = generate_video_and_save(current_session)
 print(f"copy of video saved at {video_path}")
-
-save_video(current_session, video_path.read_bytes())
