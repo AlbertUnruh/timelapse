@@ -27,5 +27,12 @@ Please refer to [TROUBLESHOOTING.md](./TROUBLESHOOTING.md).
 > [!TIP]
 > Run ``debug_camera.py`` to check whether you have the right camera selected and if the field of view is as expected.
 
+> [!TIP]
+> If you already have frames but no video (due to crash or termination) you can generate the video with following command(s):
+> ```python
+> from timelapse.utils import generate_video_and_save
+> generate_video_and_save("YOUR SESSION")  # returns the path to the local copy
+> ```
+
 > That's some sh*tty code. But it works \o/
 > <br>~me
