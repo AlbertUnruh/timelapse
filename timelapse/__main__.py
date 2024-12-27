@@ -26,15 +26,15 @@ print(f"seconds per frame:     {seconds_per_frame}")
 
 
 capture_and_save(current_session)  # one initial frame
-latest_thread = None
+threads: list[Thread] = []
 
 for _ in range(total_frames):
     sleep(seconds_per_frame)
-    latest_thread = Thread(target=capture_and_save, name=f"capture and save #{_}", args=(current_session,))
-    latest_thread.start()
+    threads.append(Thread(target=capture_and_save, name=f"capture and save #{_}", args=(current_session,)))
+    threads[-1].start()
 
-if latest_thread is not None:
-    latest_thread.join()  # wait for latest thread to finish
+for thread in threads:  # wait for all threads to finish
+    thread.join()
 
 print("last frame has been captured and saved")
 
