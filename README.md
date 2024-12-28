@@ -33,6 +33,7 @@ Please refer to [TROUBLESHOOTING.md](./TROUBLESHOOTING.md).
 > from timelapse.utils import generate_video_and_save
 > generate_video_and_save("YOUR SESSION")  # returns the path to the local copy
 > ```
+> Alternatively you can run ``python generate_and_save_ideo.py YOUR-SESSION``
 
 > That's some sh*tty code. But it works \o/
 > <br>~me
