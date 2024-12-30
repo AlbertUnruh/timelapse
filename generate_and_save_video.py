@@ -20,5 +20,5 @@ if session not in find_sessions():
     print(f"Unable to find session {session!r} over at {url}{redaction_notice}", file=sys.stderr)
     sys.exit(1)
 
-video_path = generate_video_and_save(" ".join(sys.argv[1:]))
+video_path = generate_video_and_save(session)
 print(f"copy of video saved at {video_path}")
